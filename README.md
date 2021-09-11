@@ -1,41 +1,42 @@
-# USE DATABASE --you can be this database
-<br> select * from users -- you can take all parameters of users
-<br> select name, surname from users -- you get the parameter you need
-<br> select name+''+suname as [fullname]  from users where year(birthdate)<=1995 -- if you wantto filtering you can use "WHERE"
-<br> select name, datediff(YY,birthdate,gatdate()) as [age] from users where age is not null -- Meaning of null dont have parameter
-<br> select name+''+suname as [fullname]  from users where year(birthdate)<1995 and year(birthday)>1990 -- if We need more value We can use 'AND'
- <br> select firstname, lastname from users where year(birtdate) between 1990 and 1995  --you can be control range "between and "
- <br> select name+''+suname as [fullname]  from users where year(birthdate)=1995 OR  year(birtday)=1990 --the value should provide any  'OR'
-  <br> select firstname, lastname from users where year(birtdate) in ( 1990 ,1994,1995)   --If you have more 'OR' you can use 'in '
- <br> select name+''+suname as [fullname]  from users where year(birthdate)<=1995  order by 1 asc  -- 'order by' does the sorting 
- <br> select firstname, lastname from users where year(birtdate) between 1990 and 1995  --you can be control range "between and "
-  <br> select top1 firstname, lastname from users where year(birtdate) between 1990 and 1995  --you can find best or worst value 
-  <br> select firstname, lastname from users where year(birtdate) between 1990 and 1995  --you can be control range "between and "
-  
- # How Can Write in String ?
-  <br> select FirstName, LastName from users where FirstName Like 'A%' -- You can find that starting letter 
-  <br> select FirstName, LastName from users where FirstName Like '%A' -- You can find that stopping letter 
-  <br> select FirstName, LastName from users where FirstName Like '%A%' -- You can find that anywhere letter 
-  <br> select FirstName, LastName from users where FirstName Like '[AL]%'-- you can find that starting letter  with first or secondar letter 
-  <br> select FirstName, LastName from users where FirstName Like '[A__L]'-- You can find that distance of first letter and second letter  have 
-   letter
-   <br> select FirstName, LastName from users where FirstName  Not Like '%A' -- you find that not stopping letter 
-   <br> select FirstName, LastName from users where FirstName Like '%A%'
-<br> select ASCII('A') as [ASCII Kodu ] -- you can find numberic value for letter 
-<br> select CHAR(65) as Karakter   -- you can find letter value for numberic
-<br> select CHARINDEX('@', 'songulsytrk@gmail.com') as location -- you can find first parameter location 
-<br> select LEFT('Songul soyturk ', 4) as [number of characters from the left]
-<br> select Right('songul soyturk', 4) as [number of characters from the right]
-<br> select Len('songul ') as [number of characters ]
- <br> select lower('SonGUL SOYTurk') as [All Small ]
-<br> select upper('SonGUL SOYTurk') as [All Big ]
-<br> select LTRIM('              songül') as [Deleted from the left ]
-<br> select RTRIM('Songül            ') as [Deleted from the right ]
-<br> select LTRIM( RTRIM('     songul soyturk'    )) as [deleted everywhere ]
-<br>select REPLACE('birbirlerine','bir','iki') as [you change with thirt parameter]
-<br> select SUBSTRING('Songül Soytürk',3,6) as [subtext] 
+# WHAT İS SQL SERVER ?
+SQL Server is a relational database management system,  developed and marketed by Microsoft.
+<BR> SQL Server is built on top of SQL, a standard programming language for interacting with the relational databases. SQL server is tied to  T-SQL, the Microsoft’s implementation of SQL that adds a set of proprietary programming constructs.
+ 
+ ## What Can You Do With Microsoft SQL Server?
 
- # Aggrate Function
+* Data processing and storage
+
+* Data indexing and querying
+
+* Database management
+
+* Data flow optimization
+
+* Data reporting Policy-based data access
+ 
+ ## Function 
+
+ Functions allow us to access the sql queries we repeat constantly from a single point in order to make our work easier.This gives us the opportunity to have a fast access, a fast error control mechanism, quick intervention, and not repeating the query.Functions can return any value type. You can return an INT, VARCHAR value as well as a table.
+
+
+ ## Stored Procedures
+
+Stored procedures are Transact-SQL statements maintained on SQL Server. They are structured to perform a specific task.
+They are compiled on SQL Server. They are used by calling them from within the program, according to the conditions we have determined.
+Stored procedures written with Transact-SQL statements are compiled only the first time they are run.
+They are not compiled on subsequent runs. In this way, the work is accelerated. It helps us to avoid code duplication and run our code wherever we want with the parameters we want.
+ 
+ ## Trigger 
+ 
+ It is used when an operation (insert, update, delete) takes place on the table and another operation is desired.
+ ### DML (Data Manipulation Language) Triggers:
+ DML is a type of SQL command that helps retrieve and manage data in relational databases.DML expressions used for reading and manipulating data such as INSERT, UPDATE, and DELETE.DML triggers are fired whenever data is changed using the INSERT, UPDATE, and DELETE events.
+ 
+### After & Instead of Triggers
+* AFTER : The trigger will run after the condition is successful.
+
+* INSTEAD OF : When the event mentioned in the trigger will occur, it takes place instead of that action.
+ 
  
 
 
