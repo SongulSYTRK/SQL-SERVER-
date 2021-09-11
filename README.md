@@ -17,16 +17,17 @@ SQL Server is a relational database management system,  developed and marketed b
  ## Function 
 
  Functions allow us to access the sql queries we repeat constantly from a single point in order to make our work easier.This gives us the opportunity to have a fast access, a fast error control mechanism, quick intervention, and not repeating the query.Functions can return any value type. You can return an INT, VARCHAR value as well as a table.
+	
+```
  
-<br>` create function GetUsersInformation(@UsersID int)`
-<br>`returns table `
- <br>`return select * from Users where UserID= @UserID`
+create function GetUsersInformation(@UsersID int)
+returns table 
+return select * from Users where UserID= @UserID
 
-<br>`select * from GetUsersInformation(5) `
+select * from GetUsersInformation(5) 
  
 
- 
- 
+ ```
 
  ## Stored Procedures
 
@@ -35,15 +36,19 @@ They are compiled on SQL Server. They are used by calling them from within the p
 Stored procedures written with Transact-SQL statements are compiled only the first time they are run.
 They are not compiled on subsequent runs. In this way, the work is accelerated. It helps us to avoid code duplication and run our code wherever we want with the parameters we want.
  
- 
- <br> `create procedure sp_totalyshopping @id int `
-	<br>`as`
-	<br> `begin`
-	<br> `select CompanyName, SUM(D.Quantity )from Customers C join Orders O on o.CustomerID=c.CustomerID`
-	<br>`join [Order Details] D on o.OrderID=D.OrderID where c.CustomerID = @id group by CompanyName`
-	<br>`end `
+ ```
+create procedure sp_totalyshopping @id int 
+	as
+  begin
+	select CompanyName, SUM(D.Quantity )
+	from Customers C join Orders O on o.CustomerID=c.CustomerID
+	join [Order Details] D on o.OrderID=D.OrderID where c.CustomerID = @id 
+	group by CompanyName
+  end 
 
-   <br> `execute sp_totalyshopping @id=2`
+   execute sp_totalyshopping @id=2
+	
+```	
  
  ## Trigger 
  
@@ -55,19 +60,24 @@ They are not compiled on subsequent runs. In this way, the work is accelerated. 
 * AFTER : The trigger will run after the condition is successful.
 
 * INSTEAD OF : When the event mentioned in the trigger will occur, it takes place instead of that action.
+```	
  
- <br> `Create  trigger trg_numaraagiriss on Shippers`
-<br> `instead of insert`
-<br> `as`
-  <br> `begin `
-  <br> ` declare @kargoname nVarchar(50), @kargono nVarchar(50);`
-<br> `	select @kargoname= CompanyName, @kargono = phone  from inserted`
-	<br> `declare @yenino nVarchar(50);`
-	 <br> `set @yenino=LEFT(@kargono,1)+'('+SUBSTRING(@kargono,2,3)+')'+SUBSTRING(@kargono,5,3)+'-'+SUBSTRING(@kargono,8,2)+'-'+right (@kargono,2)`
-	<br>`insert Shippers(CompanyName,Phone) values (@kargoname,@yenino)`
+ Create  trigger trg_numaraagiriss on Shippers
+instead of insert
+        as
+   BEGİN
+        declare @kargoname nVarchar(50), @kargono nVarchar(50);
+        select @kargoname= CompanyName, @kargono = phone  from inserted
+	declare @yenino nVarchar(50);
+	update  Shippers set @yenino=LEFT(@kargono,1)+
+	                     '('+SUBSTRING(@kargono,2,3)+')'+
+	                     SUBSTRING(@kargono,5,3)+'-'+
+	                      SUBSTRING(@kargono,8,2)+'-'+
+	                     right (@kargono,2)
+	insert Shippers(CompanyName,Phone) values (@kargoname,@yenino)
       
-<br>	`END`
+   END    
 
-	<br> `insert into Shippers  values ('aras ','02129661425')`
+insert into Shippers  values ('aras ','02129661425')
 
-
+```
