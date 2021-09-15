@@ -87,6 +87,7 @@ insert into Shippers  values ('aras ','02129661425')
 We combine more than one table in the database with the JOIN structure and write queries to fetch the columns we want.
 However, when we want to use the query result we obtained again in the future, we need to rewrite the same SQL query.
 Therefore, the View  structure is used to avoid writing the same SQL query every time we need it.
+	<br>You cann't use Insert, Update or Delete
 	
 ```
 	create view orderlist 
