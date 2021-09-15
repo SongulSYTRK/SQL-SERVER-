@@ -81,3 +81,23 @@ instead of insert
 insert into Shippers  values ('aras ','02129661425')
 
 ```
+
+	
+## View 
+We combine more than one table in the database with the JOIN structure and write queries to fetch the columns we want.
+However, when we want to use the query result we obtained again in the future, we need to rewrite the same SQL query.
+Therefore, the View  structure is used to avoid writing the same SQL query every time we need it.
+	
+```
+	create view orderlist 
+  as
+  select c.CustomerID, 
+          c.ContactName,
+		  o.orderıd, 
+		  o.OrderDate,
+		  o.ShipName,
+		  o.ShipAddress 
+  from Orders o 
+  join Customers C on o.CustomerID=c.CustomerID
+  select * from orderlist
+```
