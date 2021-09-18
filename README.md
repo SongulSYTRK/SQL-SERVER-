@@ -102,3 +102,9 @@ Therefore, the View  structure is used to avoid writing the same SQL query every
   join Customers C on o.CustomerID=c.CustomerID
   select * from orderlist
 ```
+
+	
+ ## TRANSACTİON 
+	
+Performs all operations or none at all.	We can define it as a list of operations that guarantee success or failure in applications.It evaluates the transactions that will take place in the database collectively, and in case of an error in any transaction, it rolls back the whole process and brings it to its initial state.
+	
